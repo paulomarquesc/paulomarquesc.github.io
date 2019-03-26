@@ -10,9 +10,24 @@ In this blog post I’m going to show how to work with Azure Storage Tables from
 
 <!--more-->
 
-## Updates
+# In this blog post
 
-<span style="color:red">**Update 03/14/2019**</span>: Updates to use the new Az.Storage PowerShell module, which is now the requirement for this module to work since the old Microsoft.WindowsAzure.Storage assembly got replaced by Microsoft.Azure.Cosmos. It also runs on PowerShell core as well, tested on PS 5.1, PS 6.2 and Linux PS. Kudos to [jakedenyer](https://github.com/jakedenyer) for his contributions on async methods.
+Topics covered in this blog post:
+
+* [Updates](#updates)
+* [Introduction](#intro)
+* [Requirements](#requirements)
+* [Installation/Source Code](#install)
+* [Using Azure Storage Table PowerShell Module](#psstoragetable)
+  * [Adding Rows/Entities](#adding)
+  * [Retrieving Rows/Entities](#retrieving)
+  * [Updating an entity](#updating)
+  * [Deleting rows/entities](#deleting)
+* [References](#references)
+
+## Updates<a name="updates"></a>
+
+<span style="color:red">**Update 03/26/2019**</span>: Updates to use the new Az.Storage PowerShell module, which is now the requirement for this module to work since the old Microsoft.WindowsAzure.Storage assembly got replaced by Microsoft.Azure.Cosmos. It also runs on PowerShell core as well, tested on PS 5.1, PS 6.2 and Linux PS. Kudos to [jakedenyer](https://github.com/jakedenyer) for his contributions on async methods.
 
 **Update 03/08/2018**: Due to a number of conflicts related to assemblies needed on Storage Tables and Cosmos DB, as of this date, Cosmos DB support was removed from this module and I'll be working in a separate module for Cosmos DB and this will be release shortly.
 
@@ -22,23 +37,23 @@ In this blog post I’m going to show how to work with Azure Storage Tables from
 
 **Release Notes**: For more details about updates being done in the module, please refer to its release notes on [GitHub](https://github.com/paulomarquesc/AzureRmStorageTable/blob/master/ReleaseNotes.md).
 
-## Introduction
+## Introduction<a name="intro"></a>
 Azure Storage Tables is one of the four Microsoft Azure Storage abstractions available (Blobs, Queues and Azure Files are the other ones) at the time that this blog was written. It is basically a way to store data in a structured way on a non relational database system (meaning, not an RDBMS system) based on key-value pairs.
 
 Since up to today there are no official cmdlets to support entity/row management inside the tables from Azure PowerShell module, I decided to create this simple module to help IT Pros to leverage this service without having knowledge of .NET framework through some simple cmdlets as follows:
 
-| **Cmdlet**                         | **Description**                                                                                             |
-|------------------------------------|-------------------------------------------------------------------------------------------------------------|
-| Add-AzTableRow                     | Adds a row/entity to a specified table                                                                      |
-| Get-AzTableRow                     | Used to return entities from a table with several options, this replaces all other Get-AzTable<XYZ> cmdlets.|
-| Get-AzTableRowAll                  | (Deprecated) Returns all rows/entities from a storage table - no Filtering                                  |
-| Get-AzTableRowByColumnName         | (Deprecated) Returns one or more rows/entities based on a specified column and its value                    |
-| Get-AzTableRowByCustomFilter       | Returns one or more rows/entities based on custom Filter                                                    |
-| Get-AzTableRowByPartitionKey       | Returns one or more rows/entities based on Partition Key                                                    |
-| Get-AzTableRowByPartitionKeyRowKey | Returns one entity based on Partition Key and RowKey                                                        |
-| Get-AzTableTable                   | Gets a Table object to be used in all other cmdlets                                                         |
-| Remove-AzTableRow                  | Removes a specified table row                                                                               |  
-| Update-AzTableRow                  | Updates a table entity                                                                                      |
+| **Cmdlet**                         | **Description**                                                                                              |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| Add-AzTableRow                     | Adds a row/entity to a specified table                                                                       |
+| Get-AzTableRow                     | Used to return entities from a table with several options, this replaces all other Get-AzTable<XYZ> cmdlets. |
+| Get-AzTableRowAll                  | (Deprecated) Returns all rows/entities from a storage table - no Filtering                                   |
+| Get-AzTableRowByColumnName         | (Deprecated) Returns one or more rows/entities based on a specified column and its value                     |
+| Get-AzTableRowByCustomFilter       | Returns one or more rows/entities based on custom Filter                                                     |
+| Get-AzTableRowByPartitionKey       | Returns one or more rows/entities based on Partition Key                                                     |
+| Get-AzTableRowByPartitionKeyRowKey | Returns one entity based on Partition Key and RowKey                                                         |
+| Get-AzTableTable                   | Gets a Table object to be used in all other cmdlets                                                          |
+| Remove-AzTableRow                  | Removes a specified table row                                                                                |
+| Update-AzTableRow                  | Updates a table entity                                                                                       |
 
 > Note: For compabilitiy purposes, aliases were created for the old noun style `AzureStorageTable`. New noun, `AzTable`, is the replacement that will allow you to automatically load the `AzureRmStorageTable`. If you wish to continue to use the old names, make sure you explicitly load the module before using them.
 
@@ -49,7 +64,7 @@ There are a number of use cases for an IT Pro work with Azure Tables from PowerS
 * VM Deployment scripts, where it becomes a central location for logs
 * Easily extract Performance and Diagnostics data from VMs with Diagnostics enabled
 
-## Requirements
+## Requirements<a name="requirements"></a>
 PowerShell 5.1 or greater (this is also supported on Linux PowerShell)
 This module requires the new [Az Modules](https://docs.microsoft.com/en-us/powershell/azure/new-azureps-module-az?view=azps-1.5.0):
 * Az.Storage (1.0.3 or greater)
@@ -59,14 +74,14 @@ You can get this information by issuing the following command line from PowerShe
 
 {% gist paulomarquesc/4f89769c3a243b79c5784053a24addfc %}
  
-## Installation/Source Code
+## Installation/Source Code<a name="install"></a>
 Since this module is published on [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRmStorageTable), you can install this module directly from PowerShell 5.1 or greater and Windows 10 / Windows Server 2016 / Linux by executing the following cmdlet in an elevated (Windows) PowerShell command prompt window:
 
 {% gist paulomarquesc/2540cd5260c2ac475be066c4aac18182 %}
  
 As an alternative, you can manually download the module from my GitHub repository [here](https://github.com/paulomarquesc/AzureRmStorageTable) and extract to `C:\Program Files\WindowsPowerShell\Modules` for PowerShell 5.1 or  `C:\Program Files\PowerShell\Modules` for PowerShell 6.2 , or greater, and rename the folder to AzureRmStorageTable. Please remember to **unblock** the zip file before extracting it.
 
-## Working with Azure Storage Table PowerShell Module
+## Using Azure Storage Table PowerShell Module<a name="psstoragetable"></a>
 The following steps will walk you through loading the module and perform one or more example tasks of the basic operations offered in this module.
 
 Before you start working with it, you need to authenticate to Azure and select the correct subscription if you have multiple subscriptions:
@@ -99,8 +114,7 @@ Optionally, you can obtain the table reference by using the Az.Storage cmdlets:
 
 Up to this point we just prepared our PowerShell session by authenticating, importing the module, setting up some variables and getting our table, from this point moving forward we will focus on the basic operations exposed through the module. I’m creating a section per function/operation.
 
-
-### Adding Rows/Entities
+### Adding Rows/Entities<a name="adding"></a>
 #### Adding lines one by one
 
 {% gist paulomarquesc/8e5b613fe928b74d4ff238a159f79970 %}
@@ -119,8 +133,7 @@ If we open [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/s
 
 ![storage explorer](/assets/{{postPath}}/image390.png)
 
-
-### Retrieving Rows/Entities
+### Retrieving Rows/Entities<a name="retrieving"></a>
 
 When retrieving rows using the functions described below, they will return a **PSObject** instead of a **DynamicTableEntity** and since they will give you some extra work to manipulate/access the properties I decided to make the Get cmdlets return PSObject instead.
 
@@ -188,7 +201,7 @@ Result
 
 ![string filter](/assets/{{postPath}}/image397.png)
 
-### Updating an entity
+### Updating an entity<a name="updating"></a>
 
 This process requires three steps:
 
@@ -206,7 +219,7 @@ Result
 
 ![updating](/assets/{{postPath}}/image398.png)
 
-### Deleting rows/entities
+### Deleting rows/entities<a name="deleting"></a>
 
 Similarly to the update process here we have two steps as follows unless you know the partitionKey and rowKey properties, in this case you can delete directly:
 
@@ -241,7 +254,7 @@ Result
 
 {% gist paulomarquesc/16311d57908ab06ebc866233bce92bc2 %}
 
-## References
+## References<a name="references"></a>
 
 For more information about Azure Storage Tables, please refer to the following documents:
 
