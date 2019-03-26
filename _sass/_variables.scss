@@ -13,11 +13,13 @@ $darkGray: #333;
 $gray: #666;
 $lightGray: #eee;
 $white: #fff;
+$lightBlue: #00ddff;
 
 // Font stacks
 $helvetica: Helvetica, Arial, sans-serif;
 $helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $georgia: Georgia, serif;
+$segoeUi: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 // Mobile breakpoints
 @mixin mobile {

@@ -18,7 +18,7 @@ html {
 
 body {
 	background: $white;
-  font: 18px/1.4 $helvetica;
+  font: 18px/1.4 $segoeUi;
   color: $darkGray;
 }
 
@@ -30,11 +30,11 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $helveticaNeue;
+  font-family: $segoeUi;
   color: $darkerGray;
-  font-weight: bold;
+  font-weight: 400;
 
-  line-height: 1.7;
+  //line-height: 1.7;
   margin: 1em 0 15px;
   padding: 0;
 
@@ -122,11 +122,11 @@ img {
 // Specify the color of the selection
 ::-moz-selection {
   color: $black;
-  background: $lightGray;
+  background: $lightBlue;
 }
 ::selection {
   color: $black;
-  background: $lightGray;
+  background: $lightBlue;
 }
 
 // Nicolas Gallagher's micro clearfix hack
@@ -236,6 +236,30 @@ nav {
   }
 }
 
+// Table
+table.gridtable {
+	font-family: $segoeUi;
+	font-size:14px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+table.gridtable th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+table.gridtable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
+
 //
 // .main
 //
@@ -256,7 +280,7 @@ nav {
     border-left: 2px solid $gray;
     padding: 0.1em 1em;
     color: $gray;
-    font-size: 22px;
+    font-size: 18px;
     font-style: italic;
   }
 

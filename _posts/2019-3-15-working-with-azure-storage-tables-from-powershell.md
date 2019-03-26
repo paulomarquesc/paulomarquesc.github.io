@@ -42,6 +42,7 @@ Azure Storage Tables is one of the four Microsoft Azure Storage abstractions ava
 
 Since up to today there are no official cmdlets to support entity/row management inside the tables from Azure PowerShell module, I decided to create this simple module to help IT Pros to leverage this service without having knowledge of .NET framework through some simple cmdlets as follows:
 
+{: .table.gridtable}
 | **Cmdlet**                         | **Description**                                                                                              |
 | ---------------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | Add-AzTableRow                     | Adds a row/entity to a specified table                                                                       |
@@ -224,7 +225,7 @@ Result
 Similarly to the update process here we have two steps as follows unless you know the partitionKey and rowKey properties, in this case you can delete directly:
 
 1. Retrieve the entity
-1. Delete the entity passing the retrieved one as argument
+2. Delete the entity passing the retrieved one as argument
 
 #### Deleting a single row/entity by piping the entity
 
