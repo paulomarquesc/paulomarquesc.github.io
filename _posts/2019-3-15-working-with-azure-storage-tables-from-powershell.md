@@ -67,7 +67,7 @@ There are a number of use cases for an IT Pro work with Azure Tables from PowerS
 ## Requirements<a name="requirements"></a>
 PowerShell 5.1 or greater (this is also supported on Linux PowerShell)
 This module requires the new [Az Modules](https://docs.microsoft.com/en-us/powershell/azure/new-azureps-module-az?view=azps-1.5.0):
-* Az.Storage (1.0.3 or greater)
+* Az.Storage (1.1.0 or greater)
 * Az.Resources (1.2.0 or greater)
 
 You can get this information by issuing the following command line from PowerShell:
