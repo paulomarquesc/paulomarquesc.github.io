@@ -73,7 +73,7 @@ This module requires the new [Az Modules](https://docs.microsoft.com/en-us/power
 
 You can get this information by issuing the following command line from PowerShell:
 
-{% gist paulomarquesc/4f89769c3a243b79c5784053a24addfc %}
+{: body.gist.highlight % gist paulomarquesc/4f89769c3a243b79c5784053a24addfc %}
  
 ## Installation/Source Code<a name="install"></a>
 Since this module is published on [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRmStorageTable), you can install this module directly from PowerShell 5.1 or greater and Windows 10 / Windows Server 2016 / Linux by executing the following cmdlet in an elevated (Windows) PowerShell command prompt window:
