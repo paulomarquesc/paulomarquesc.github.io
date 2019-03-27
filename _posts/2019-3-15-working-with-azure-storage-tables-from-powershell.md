@@ -113,6 +113,8 @@ Optionally, you can obtain the table reference by using the Az.Storage cmdlets:
 
 {% gist paulomarquesc/b2ded6595273f2164541b57bded19876 %}
 
+> Note: With release of Az.Storage 1.1.0, you need to reference the CloudTable property of the table returned from Get-AzStorageTable, that was not needed in the previous versions, ideally you will use Get-AzTableTable cmdlet instead but there might be cases where you need the Get-AzStorageTable.
+
 Up to this point we just prepared our PowerShell session by authenticating, importing the module, setting up some variables and getting our table, from this point moving forward we will focus on the basic operations exposed through the module. I’m creating a section per function/operation.
 
 ### Adding Rows/Entities<a name="adding"></a>
