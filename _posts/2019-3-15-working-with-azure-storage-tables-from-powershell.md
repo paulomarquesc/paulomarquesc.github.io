@@ -23,6 +23,7 @@ Topics covered in this blog post:
   * [Retrieving Rows/Entities](#retrieving)
   * [Updating an entity](#updating)
   * [Deleting rows/entities](#deleting)
+* [Troubleshooting](#troubleshooting)
 * [References](#references)
 
 ## Updates<a name="updates"></a>
@@ -256,6 +257,22 @@ Result
 #### Deleting everything
 
 {% gist paulomarquesc/16311d57908ab06ebc866233bce92bc2 %}
+
+## Troubleshooting<a name="troubleshooting"></a>
+
+This section helps you troubleshoot some of the most common issues:
+
+* **Method invocation failed because [Microsoft.WindowsAzure.Commands.Common.Storage.ResourceModel.AzureStorageTable] does not contain a method named 'ExecuteQuerySegmentedAsync'**.
+    
+    Please refer to [this](https://github.com/paulomarquesc/AzureRmStorageTable/issues/30) issue discussion on Github repo.
+
+* **New-Object : Cannot find type [Microsoft.Azure.Cosmos.Table.TableQuery]: verify that the assembly containing this type is loaded.At C:\Program Files\WindowsPowerShell\Modules\AzureRmStorageTable\2.0.1\AzureRmStorageTableCoreHelper.psm1**
+    
+    Make sure you have Az.Storage (1.1.0 or greater) installed, be aware that in case of duplicated modules installed you also may have the same issue, [this](https://github.com/paulomarquesc/AzureRmStorageTable/issues/30) discussion highlight another way this may happen and how to fix it (solution 2 that I presented).
+
+* **The term 'Update-AzureStorageTableRow' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.**
+    
+    This error can happen with with other cmdlets as well, e.g. Get-AzureStorageTableTable, this happens because all cmdlets got renamed as previously mentioned in this article, aliases were created to keep compatibility but you need to perform an `Import-Module AzureRmStorageTable` in order to load the aliases since the module auto-load only happens for the cmdlets itself and not the aliases. I strongly advise that you rename your cmdlets as soon as possible to avoid future issues.
 
 ## References<a name="references"></a>
 
