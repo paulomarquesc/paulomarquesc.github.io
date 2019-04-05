@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Working with Azure Tables from PowerShell - AzureRmStorageTable PS Module v2.0
+title: Working with Azure Tables from PowerShell - AzureRmStorageTable/AzTable PS Module v2.0
 excerpt_separator: <!--more-->
 comments: true
 ---
@@ -28,7 +28,9 @@ Topics covered in this blog post:
 
 ## Updates<a name="updates"></a>
 
-<span style="color:red">**Update 03/26/2019**</span>: Updates to use the new Az.Storage PowerShell module, which is now the requirement for this module to work since the old Microsoft.WindowsAzure.Storage assembly got replaced by Microsoft.Azure.Cosmos. It also runs on PowerShell core as well, tested on PS 5.1, PS 6.2 and Linux PS. Kudos to [jakedenyer](https://github.com/jakedenyer) for his contributions on async methods.
+<span style="color:red">**Update 04/04/2019**</span>: To avoid confusion if this module supports the new Az Powershell module, a new module name was released in the PowerShell Gallery under the name **AzTable**. The old name, **AzureRmStorageTable** will be kept in the gallery for compatibility purposes, both references the same code.
+
+**Update 03/26/2019**: Updates to use the new Az.Storage PowerShell module, which is now the requirement for this module to work since the old Microsoft.WindowsAzure.Storage assembly got replaced by Microsoft.Azure.Cosmos. It also runs on PowerShell core as well, tested on PS 5.1, PS 6.2 and Linux PS. Kudos to [jakedenyer](https://github.com/jakedenyer) for his contributions on async methods.
 
 **Update 03/08/2018**: Due to a number of conflicts related to assemblies needed on Storage Tables and Cosmos DB, as of this date, Cosmos DB support was removed from this module and I'll be working in a separate module for Cosmos DB and this will be release shortly.
 
