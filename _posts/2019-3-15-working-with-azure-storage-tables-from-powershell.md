@@ -28,7 +28,7 @@ Topics covered in this blog post:
 
 ## Updates<a name="updates"></a>
 
-<span style="color:red">**Update 04/04/2019**</span>: To avoid confusion if this module supports the new Az Powershell module, a new module name was released in the PowerShell Gallery under the name **AzTable**. The old name, **AzureRmStorageTable** will be kept in the gallery for compatibility purposes, both references the same code.
+<span style="color:red">**Update 04/04/2019**</span>: To avoid confusion if this module supports the new Az Powershell module, a new module name was released in the PowerShell Gallery under the name **AzTable**. The old name, **AzureRmStorageTable** will be kept in the gallery for compatibility purposes, both references the same code. This document will the new module name only.
 
 **Update 03/26/2019**: Updates to use the new Az.Storage PowerShell module, which is now the requirement for this module to work since the old Microsoft.WindowsAzure.Storage assembly got replaced by Microsoft.Azure.Cosmos. It also runs on PowerShell core as well, tested on PS 5.1, PS 6.2 and Linux PS. Kudos to [jakedenyer](https://github.com/jakedenyer) for his contributions on async methods.
 
@@ -59,7 +59,7 @@ Since up to today there are no official cmdlets to support entity/row management
 | Remove-AzTableRow                  | Removes a specified table row                                                                                |
 | Update-AzTableRow                  | Updates a table entity                                                                                       |
 
-> Note: For compabilitiy purposes, aliases were created for the old noun style `AzureStorageTable`. New noun, `AzTable`, is the replacement that will allow you to automatically load the `AzureRmStorageTable`. If you wish to continue to use the old names, make sure you explicitly load the module before using them.
+> Note: For compabilitiy purposes, aliases were created for the old noun style `AzureStorageTable`. New noun, `AzTable`, is the replacement that will allow you to automatically load the `AzTable`. If you wish to continue to use the old names, make sure you explicitly load the module before using them.
 
 There are a number of use cases for an IT Pro work with Azure Tables from PowerShell where it becomes a great repository, the ones below are just few examples:
 
@@ -79,7 +79,7 @@ You can get this information by issuing the following command line from PowerShe
 {: body.gist.highlight % gist paulomarquesc/4f89769c3a243b79c5784053a24addfc %}
  
 ## Installation/Source Code<a name="install"></a>
-Since this module is published on [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRmStorageTable), you can install this module directly from PowerShell 5.1 or greater and Windows 10 / Windows Server 2016 / Linux by executing the following cmdlet in an elevated (Windows) PowerShell command prompt window:
+Since this module is published on [PowerShell Gallery](https://www.powershellgallery.com/packages/AzTable), you can install this module directly from PowerShell 5.1 or greater and Windows 10 / Windows Server 2016 / Linux by executing the following cmdlet in an elevated (Windows) PowerShell command prompt window:
 
 {% gist paulomarquesc/2540cd5260c2ac475be066c4aac18182 %}
  
@@ -274,7 +274,7 @@ This section helps you troubleshoot some of the most common issues:
 
 * **The term 'Update-AzureStorageTableRow' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.**
     
-    This error can happen with with other cmdlets as well, e.g. Get-AzureStorageTableTable, this happens because all cmdlets got renamed as previously mentioned in this article, aliases were created to keep compatibility but you need to perform an `Import-Module AzureRmStorageTable` in order to load the aliases since the module auto-load only happens for the cmdlets itself and not the aliases. I strongly advise that you rename your cmdlets as soon as possible to avoid future issues.
+    This error can happen with with other cmdlets as well, e.g. Get-AzureStorageTableTable, this happens because all cmdlets got renamed as previously mentioned in this article, aliases were created to keep compatibility but you need to perform an `Import-Module AzureRmStorageTable` or `Import-Module AzTable` in order to load the aliases since the module auto-load only happens for the cmdlets itself and not the aliases. I strongly advise that you rename your cmdlets as soon as possible to avoid future issues.
 
 ## References<a name="references"></a>
 
