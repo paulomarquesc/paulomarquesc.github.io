@@ -92,7 +92,7 @@ Before you start working with it, you need to authenticate to Azure and select t
 
 {% gist paulomarquesc/225401da514b9b86d4e44c4c27fb5391 %}
 
-Next, lets import AzureRmTableStorage PowerShell module and list the functions available on it:
+Next, lets import `AzTable` PowerShell module and list the functions available on it:
 
 {% gist paulomarquesc/5e6cb412f71e57818991ebbe0c48c5fc %}
 
