@@ -338,3 +338,4 @@ For more information please refer to:
 * [Back up an Azure VM from the VM settings](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-first-look-arm)
 * [Back up a virtual machine in Azure with PowerShell](https://docs.microsoft.com/en-us/azure/backup/quick-backup-vm-powershell)
 * [Back up a virtual machine in Azure](https://docs.microsoft.com/en-us/azure/backup/quick-backup-vm-portal)
+* [Enable and Start Backup Scripts repo](https://github.com/Azure/RDS-Templates/tree/master/EnableBackupScript)
