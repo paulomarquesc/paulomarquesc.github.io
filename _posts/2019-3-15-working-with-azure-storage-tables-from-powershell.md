@@ -23,6 +23,7 @@ Topics covered in this blog post:
   * [Retrieving Rows/Entities](#retrieving)
   * [Updating an entity](#updating)
   * [Deleting rows/entities](#deleting)
+* [Azure Automation](#azureautomation)
 * [Troubleshooting](#troubleshooting)
 * [References](#references)
 
@@ -183,6 +184,8 @@ Example using a guid entity type:
 
 #### Queries using custom filters with help of Microsoft.Azure.Cosmos.Table.TableQuery class and direct string text
 
+The custom filter is an important option since we are not covering all data types from the module, for example datetime types.
+
 ##### Simple filter
 
 {% gist paulomarquesc/c55735f6e52f5311fca51414d56843a0 %}
@@ -259,6 +262,10 @@ Result
 #### Deleting everything
 
 {% gist paulomarquesc/16311d57908ab06ebc866233bce92bc2 %}
+
+## Azure Automation<a name="azureautomation"></a>
+
+In order to run this module from within Azure Automation Runbooks, please make sure you follow the steps outlined at [Az module support in Azure Automation](https://docs.microsoft.com/en-us/azure/automation/az-modules).
 
 ## Troubleshooting<a name="troubleshooting"></a>
 
