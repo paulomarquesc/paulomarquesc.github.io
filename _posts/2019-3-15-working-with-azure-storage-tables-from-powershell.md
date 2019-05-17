@@ -186,6 +186,8 @@ Example using a guid entity type:
 
 The custom filter is an important option since we are not covering all data types from the module, for example datetime types.
 
+>Note: When working with logical operators (and, or, not), they are case-sensitive and must be used as lower case since the underlying SDK uses OData v3 specification. [Here](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_LogicalOperators) you can find more information.  
+
 ##### Simple filter
 
 {% gist paulomarquesc/c55735f6e52f5311fca51414d56843a0 %}
