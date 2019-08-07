@@ -6,7 +6,7 @@ comments: false
 ---
 {% assign postPath = page.path | remove: '%0A' | remove: '_posts' | remove: '.md' %}
 
-First blog post on GitHub Pages with Jekyll. Contains references on how to get started the way I did and other references as well, e.g. adding to Bing and Google to be crawled. Also, how to add pictures and code (this is for my own reference as well :-) )
+First blog post on GitHub Pages with Jekyll. Contains references on how to get started the way I did and other references as well, e.g. adding to Bing and Google to be crawled. Also, how to add pictures and code (this is for my own reference as well :-) ).
 
 <!--more-->
 
@@ -45,6 +45,11 @@ Hello world from GitHub Gist.
 
 {% gist paulomarquesc/7f2d3a4ef4e43a4edb40ab4b7b190f09 %}
 
+Testing Jekyll Locally
+```
+bundle jekyll serve
+```
+
 ## References
 
 Following links helped me build/maintain this new blog site:
@@ -65,7 +70,7 @@ Webmaster tools from search engines:
 * [Bing](https://www.bing.com/webmaster)
 * [Google](https://www.google.com/webmasters/tools)
 
-Just drop both BingSiteAuth.xml and google`<xyz>`.html files into your uncompiled site (same folder as your _config.yml) and push into your repository. These files will get into _site folder when compiled by GitHub Pages.
+Just drop both BingSiteAuth.xml and google`<xyz>`.html files into your not-compiled site (same folder as your _config.yml) and push into your repository. These files will get into _site folder when compiled by GitHub Pages.
 To test access to these files just use your browser (they are case sensitive), for my GitHub Pages it will look like this:
 * https://paulomarquesc.github.io/BingSiteAuth.xml
 * https://paulomarquesc.github.io/google0af3453ea3d6d7ce.html
