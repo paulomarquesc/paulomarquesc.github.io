@@ -29,9 +29,11 @@ Topics covered in this blog post:
 
 ## Updates<a name="updates"></a>
 
-<span style="color:red">**Update 08/06/2019**</span>: Comments were removed from this blog post due to efforts to centralize discussions and/or issues into the module repo due to this module ownership changes. If you have any issues/comments, please file a comment/issue [here](https://github.com/paulomarquesc/AzureRmStorageTable/issues).
+<span style="color:red">**Update 09/23/2019**</span>: As of this date this blog post will not be updated anymore, for updated information, please use the [docs](https://github.com/paulomarquesc/AzureRmStorageTable/tree/master/docs) section on this module's repo on Github.
 
-Update 04/04/2019**: To avoid confusion if this module supports the new Az Powershell module, a new module name was released in the PowerShell Gallery under the name **AzTable**. The old name, **AzureRmStorageTable** will be kept in the gallery for compatibility purposes, both references the same code. This document will reference the new module name only.
+**Update 08/06/2019**: Comments were removed from this blog post due to efforts to centralize discussions and/or issues into the module repo due to this module ownership being changed. If you have any issues/comments, please file a comment/issue [here](https://github.com/paulomarquesc/AzureRmStorageTable/issues).
+
+**Update 04/04/2019**: To avoid confusion if this module supports the new Az Powershell module, a new module name was released in the PowerShell Gallery under the name **AzTable**. The old name, **AzureRmStorageTable** will be kept in the gallery for compatibility purposes, both references the same code. This document will reference the new module name only.
 
 **Update 03/26/2019**: Updates to use the new Az.Storage PowerShell module, which is now the requirement for this module to work since the old Microsoft.WindowsAzure.Storage assembly got replaced by Microsoft.Azure.Cosmos. It also runs on PowerShell core as well, tested on PS 5.1, PS 6.2 and Linux PS. Kudos to [jakedenyer](https://github.com/jakedenyer) for his contributions on async methods.
 
@@ -55,14 +57,14 @@ Since up to today there are no official cmdlets to support entity/row management
 | Get-AzTableRow                     | Used to return entities from a table with several options, this replaces all other Get-AzTable<XYZ> cmdlets. |
 | Get-AzTableRowAll                  | (Deprecated) Returns all rows/entities from a storage table - no Filtering                                   |
 | Get-AzTableRowByColumnName         | (Deprecated) Returns one or more rows/entities based on a specified column and its value                     |
-| Get-AzTableRowByCustomFilter       | Returns one or more rows/entities based on custom Filter                                                     |
-| Get-AzTableRowByPartitionKey       | Returns one or more rows/entities based on Partition Key                                                     |
-| Get-AzTableRowByPartitionKeyRowKey | Returns one entity based on Partition Key and RowKey                                                         |
+| Get-AzTableRowByCustomFilter       | (Deprecated) Returns one or more rows/entities based on custom Filter                                                     |
+| Get-AzTableRowByPartitionKey       | (Deprecated) Returns one or more rows/entities based on Partition Key                                                     |
+| Get-AzTableRowByPartitionKeyRowKey | (Deprecated) Returns one entity based on Partition Key and RowKey                                                         |
 | Get-AzTableTable                   | Gets a Table object to be used in all other cmdlets                                                          |
 | Remove-AzTableRow                  | Removes a specified table row                                                                                |
 | Update-AzTableRow                  | Updates a table entity                                                                                       |
 
-> Note: For compabilitiy purposes, aliases were created for the old noun style `AzureStorageTable`. New noun, `AzTable`, is the replacement that will allow you to automatically load the `AzTable`. If you wish to continue to use the old names, make sure you explicitly load the module before using them.
+> Note: For compatibility purposes, aliases were created for the old noun style `AzureStorageTable`. New noun, `AzTable`, is the replacement that will allow you to automatically load the `AzTable`. If you wish to continue to use the old names, make sure you explicitly load the module before using them.
 
 There are a number of use cases for an IT Pro work with Azure Tables from PowerShell where it becomes a great repository, the ones below are just few examples:
 
